@@ -7,6 +7,11 @@ import {
 import owlLogo from "@/assets/owl-logo.png";
 import heroBg from "@/assets/hero-bg.jpg";
 import heroVideo from "@/assets/hero-video.mp4.asset.json";
+import headlineHero from "@/assets/headline-text.png";
+import headlineHow from "@/assets/headline-how.png";
+import headlineApps from "@/assets/headline-apps.png";
+import headlineFeatures from "@/assets/headline-features.png";
+import headlineCta from "@/assets/headline-cta.png";
 import stepPhoto from "@/assets/step-photo.jpg";
 import stepBids from "@/assets/step-bids.jpg";
 import stepAccept from "@/assets/step-accept.jpg";
