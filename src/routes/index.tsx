@@ -35,6 +35,25 @@ const fadeUp = {
   }),
 };
 
+function AnimatedHeading({ text, className = "", delay = 0 }: { text: string; className?: string; delay?: number }) {
+  const words = text.split(" ");
+  return (
+    <h1 className={className} aria-label={text}>
+      {words.map((w, i) => (
+        <span key={i} className="inline-block overflow-hidden pb-2 mr-[0.25em] align-bottom">
+          <motion.span
+            initial={{ y: "110%", opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: delay + i * 0.08, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="inline-block"
+            dangerouslySetInnerHTML={{ __html: w }}
+          />
+        </span>
+      ))}
+    </h1>
+  );
+}
+
 function Blobs() {
   return (
     <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
