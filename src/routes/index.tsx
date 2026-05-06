@@ -104,8 +104,13 @@ function Hero() {
   return (
     <section className="relative mx-auto w-[min(1200px,calc(100%-2rem))] pt-12 pb-20 md:pt-20">
       <div className="absolute inset-0 -z-10 overflow-hidden rounded-[2.5rem]">
-        <img src={heroBg} alt="" className="h-full w-full object-cover opacity-70" width={1920} height={1280} />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/40 to-background" />
+        <video
+          src={heroVideo.url}
+          autoPlay muted loop playsInline
+          className="h-full w-full object-cover opacity-80"
+        />
+        <img src={heroBg} alt="" className="absolute inset-0 h-full w-full object-cover opacity-40 mix-blend-screen" width={1920} height={1280} />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/30 to-background" />
       </div>
 
       <div className="grid items-center gap-10 px-2 md:grid-cols-2 md:px-6">
@@ -118,15 +123,14 @@ function Hero() {
             A product of Genesis Holdings Inc., USA
           </motion.span>
 
-          <motion.h1
-            variants={fadeUp} initial="hidden" animate="show"
+          <AnimatedHeading
+            text={`Wise laundry. <span class="text-gradient">Your price.</span>`}
             className="text-5xl font-bold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl"
-          >
-            Wise laundry. <span className="text-gradient">Your price.</span>
-          </motion.h1>
+            delay={0.1}
+          />
 
           <motion.p
-            variants={fadeUp} custom={1} initial="hidden" animate="show"
+            variants={fadeUp} custom={6} initial="hidden" animate="show"
             className="mt-6 max-w-xl text-lg text-muted-foreground md:text-xl"
           >
             Snap a photo. Get up to 4 live bids from trusted local pros.
@@ -134,7 +138,7 @@ function Hero() {
           </motion.p>
 
           <motion.div
-            variants={fadeUp} custom={2} initial="hidden" animate="show"
+            variants={fadeUp} custom={8} initial="hidden" animate="show"
             className="mt-10 flex flex-wrap items-center justify-center gap-3 md:justify-start"
           >
             <a href="#download" className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-accent px-6 py-3 font-semibold text-primary-foreground glow transition hover:scale-105">
