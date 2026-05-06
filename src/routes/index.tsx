@@ -398,7 +398,7 @@ function Download() {
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }} transition={{ duration: 0.7 }}
-        className="glass-strong relative overflow-hidden rounded-[2rem] p-10 text-center md:p-16"
+        className="glass-strong relative overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] p-6 sm:p-10 text-center md:p-16"
       >
         <img src={ctaBg} alt="" className="absolute inset-0 h-full w-full object-cover opacity-40" loading="lazy" width={1920} height={1080} />
         <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/40 to-background/80" />
