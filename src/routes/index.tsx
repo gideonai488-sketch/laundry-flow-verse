@@ -7,6 +7,11 @@ import {
 import owlLogo from "@/assets/owl-logo.png";
 import heroBg from "@/assets/hero-bg.jpg";
 import heroVideo from "@/assets/hero-video.mp4.asset.json";
+import headlineHero from "@/assets/headline-text.png";
+import headlineHow from "@/assets/headline-how.png";
+import headlineApps from "@/assets/headline-apps.png";
+import headlineFeatures from "@/assets/headline-features.png";
+import headlineCta from "@/assets/headline-cta.png";
 import stepPhoto from "@/assets/step-photo.jpg";
 import stepBids from "@/assets/step-bids.jpg";
 import stepAccept from "@/assets/step-accept.jpg";
@@ -35,22 +40,40 @@ const fadeUp = {
   }),
 };
 
-function AnimatedHeading({ text, className = "", delay = 0 }: { text: string; className?: string; delay?: number }) {
-  const words = text.split(" ");
+function AnimatedHeading({ src, alt, className = "", delay = 0 }: { src: string; alt: string; className?: string; delay?: number }) {
   return (
-    <h1 className={className} aria-label={text}>
-      {words.map((w, i) => (
-        <span key={i} className="inline-block overflow-hidden pb-2 mr-[0.25em] align-bottom">
-          <motion.span
-            initial={{ y: "110%", opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: delay + i * 0.08, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="inline-block"
-            dangerouslySetInnerHTML={{ __html: w }}
-          />
-        </span>
-      ))}
-    </h1>
+    <motion.h1
+      className={className}
+      aria-label={alt}
+      initial={{ opacity: 0, y: 30, scale: 0.96 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ delay, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <motion.img
+        src={src}
+        alt={alt}
+        className="w-full h-auto select-none drop-shadow-[0_8px_24px_rgba(37,99,235,0.18)]"
+        animate={{ y: [0, -6, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        draggable={false}
+      />
+    </motion.h1>
+  );
+}
+
+function SectionHeading({ src, alt, className = "" }: { src: string; alt: string; className?: string }) {
+  return (
+    <motion.img
+      src={src}
+      alt={alt}
+      loading="lazy"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+      className={`mx-auto h-auto select-none drop-shadow-[0_6px_20px_rgba(37,99,235,0.15)] ${className}`}
+      draggable={false}
+    />
   );
 }
 
@@ -124,8 +147,9 @@ function Hero() {
           </motion.span>
 
           <AnimatedHeading
-            text={`Wise laundry. <span class="text-gradient">Your price.</span>`}
-            className="text-5xl font-bold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl"
+            src={headlineHero}
+            alt="Wise laundry. Your price."
+            className="block w-full max-w-xl mx-auto md:mx-0"
             delay={0.1}
           />
 
@@ -208,7 +232,7 @@ function HowItWorks() {
         initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }} className="mx-auto max-w-2xl text-center"
       >
-        <h2 className="text-4xl font-bold md:text-5xl">How HighestWash works</h2>
+        <SectionHeading src={headlineHow} alt="How HighestWash works" className="w-full max-w-2xl" />
         <p className="mt-4 text-muted-foreground">Four taps from chaos to clean.</p>
       </motion.div>
 
@@ -267,7 +291,7 @@ function Apps() {
   return (
     <section id="apps" className="mx-auto w-[min(1200px,calc(100%-2rem))] py-20">
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mx-auto max-w-2xl text-center">
-        <h2 className="text-4xl font-bold md:text-5xl">Three apps. <span className="text-gradient">One ecosystem.</span></h2>
+        <SectionHeading src={headlineApps} alt="Three apps. One ecosystem." className="w-full max-w-2xl" />
         <p className="mt-4 text-muted-foreground">Built for everyone in the laundry economy.</p>
       </motion.div>
 
@@ -325,7 +349,7 @@ function Features() {
           <img src={featureClean} alt="Fresh folded laundry" loading="lazy" width={1024} height={768} className="h-full w-full object-cover" />
         </motion.div>
         <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-          <h2 className="text-4xl font-bold md:text-5xl">Built for the way <span className="text-gradient">you live.</span></h2>
+          <SectionHeading src={headlineFeatures} alt="Built for the way you live." className="w-full max-w-xl mx-0" />
           <p className="mt-4 text-muted-foreground">Every detail crafted to give you back your time, fresh.</p>
         </motion.div>
       </div>
@@ -362,9 +386,7 @@ function Download() {
         <img src={ctaBg} alt="" className="absolute inset-0 h-full w-full object-cover opacity-40" loading="lazy" width={1920} height={1080} />
         <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/40 to-background/80" />
         <div className="relative">
-          <h2 className="text-4xl font-bold md:text-6xl">
-            Download the app. <span className="text-gradient">Start saving today.</span>
-          </h2>
+          <SectionHeading src={headlineCta} alt="Download the app. Start saving today." className="w-full max-w-3xl" />
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
             Available for Customers, Merchants and Riders on iOS and Android.
           </p>
