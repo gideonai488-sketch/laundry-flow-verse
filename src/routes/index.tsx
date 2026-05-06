@@ -147,8 +147,9 @@ function Hero() {
           </motion.span>
 
           <AnimatedHeading
-            text={`Wise laundry. <span class="text-gradient">Your price.</span>`}
-            className="text-5xl font-bold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl"
+            src={headlineHero}
+            alt="Wise laundry. Your price."
+            className="block w-full max-w-xl mx-auto md:mx-0"
             delay={0.1}
           />
 
