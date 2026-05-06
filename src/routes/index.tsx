@@ -108,7 +108,7 @@ function Nav() {
   return (
     <motion.header
       initial={{ y: -30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6 }}
-      className="sticky top-4 z-50 mx-auto mt-4 flex w-[min(1200px,calc(100%-2rem))] items-center justify-between rounded-2xl glass-strong px-5 py-3"
+      className="sticky top-2 sm:top-4 z-50 mx-auto mt-2 sm:mt-4 flex w-[min(1200px,calc(100%-1rem))] sm:w-[min(1200px,calc(100%-2rem))] items-center justify-between rounded-2xl glass-strong px-3 py-2 sm:px-5 sm:py-3"
     >
       <Logo />
       <nav className="hidden gap-7 text-sm text-muted-foreground md:flex">
@@ -117,7 +117,7 @@ function Nav() {
         <a href="#features" className="hover:text-foreground transition">Features</a>
         <a href="#download" className="hover:text-foreground transition">Download</a>
       </nav>
-      <a href="#download" className="rounded-xl bg-gradient-to-r from-primary to-accent px-4 py-2 text-sm font-semibold text-primary-foreground glow transition hover:scale-105">
+      <a href="#download" className="rounded-xl bg-gradient-to-r from-primary to-accent px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold text-primary-foreground glow transition hover:scale-105 whitespace-nowrap">
         Get the App
       </a>
     </motion.header>
@@ -126,7 +126,7 @@ function Nav() {
 
 function Hero() {
   return (
-    <section className="relative mx-auto w-[min(1200px,calc(100%-2rem))] pt-8 pb-20 md:pt-12">
+    <section className="relative mx-auto w-[min(1200px,calc(100%-1rem))] sm:w-[min(1200px,calc(100%-2rem))] pt-6 pb-12 sm:pt-8 sm:pb-20 md:pt-12">
       {/* Grey-style hero card */}
       <motion.div
         initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
@@ -141,7 +141,7 @@ function Hero() {
         <div className="absolute -top-32 -right-32 h-[420px] w-[420px] rounded-full bg-white/20 blur-3xl" />
         <div className="absolute -bottom-32 -left-32 h-[420px] w-[420px] rounded-full bg-accent/40 blur-3xl" />
 
-        <div className="relative grid items-center gap-6 p-6 md:grid-cols-2 md:gap-4 md:p-10 lg:p-14">
+        <div className="relative grid items-center gap-6 p-5 sm:p-6 md:grid-cols-2 md:gap-4 md:p-10 lg:p-14">
           {/* Left: copy */}
           <div className="text-primary-foreground">
             <motion.span
@@ -155,7 +155,7 @@ function Hero() {
             <motion.h1
               initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="text-4xl font-extrabold leading-[1.05] tracking-tight text-white md:text-5xl lg:text-6xl"
+              className="text-3xl sm:text-4xl font-extrabold leading-[1.05] tracking-tight text-white md:text-5xl lg:text-6xl"
             >
               On-demand laundry,<br />designed just for you.
             </motion.h1>
@@ -244,7 +244,7 @@ const steps = [
 
 function HowItWorks() {
   return (
-    <section id="how" className="mx-auto w-[min(1200px,calc(100%-2rem))] py-20">
+    <section id="how" className="mx-auto w-[min(1200px,calc(100%-1rem))] sm:w-[min(1200px,calc(100%-2rem))] py-12 sm:py-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }} className="mx-auto max-w-2xl text-center"
@@ -306,7 +306,7 @@ const apps = [
 
 function Apps() {
   return (
-    <section id="apps" className="mx-auto w-[min(1200px,calc(100%-2rem))] py-20">
+    <section id="apps" className="mx-auto w-[min(1200px,calc(100%-1rem))] sm:w-[min(1200px,calc(100%-2rem))] py-12 sm:py-20">
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mx-auto max-w-2xl text-center">
         <SectionHeading src={headlineApps} alt="Three apps. One ecosystem." className="w-full max-w-2xl" />
         <p className="mt-4 text-muted-foreground">Built for everyone in the laundry economy.</p>
@@ -357,7 +357,7 @@ const features = [
 
 function Features() {
   return (
-    <section id="features" className="mx-auto w-[min(1200px,calc(100%-2rem))] py-20">
+    <section id="features" className="mx-auto w-[min(1200px,calc(100%-1rem))] sm:w-[min(1200px,calc(100%-2rem))] py-12 sm:py-20">
       <div className="grid gap-10 md:grid-cols-2 md:items-center">
         <motion.div
           initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
@@ -394,11 +394,11 @@ function Features() {
 
 function Download() {
   return (
-    <section id="download" className="mx-auto w-[min(1200px,calc(100%-2rem))] py-20">
+    <section id="download" className="mx-auto w-[min(1200px,calc(100%-1rem))] sm:w-[min(1200px,calc(100%-2rem))] py-12 sm:py-20">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }} transition={{ duration: 0.7 }}
-        className="glass-strong relative overflow-hidden rounded-[2rem] p-10 text-center md:p-16"
+        className="glass-strong relative overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] p-6 sm:p-10 text-center md:p-16"
       >
         <img src={ctaBg} alt="" className="absolute inset-0 h-full w-full object-cover opacity-40" loading="lazy" width={1920} height={1080} />
         <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/40 to-background/80" />
@@ -423,7 +423,7 @@ function Download() {
 
 function Footer() {
   return (
-    <footer className="mx-auto mt-10 w-[min(1200px,calc(100%-2rem))] pb-10">
+    <footer className="mx-auto mt-10 w-[min(1200px,calc(100%-1rem))] sm:w-[min(1200px,calc(100%-2rem))] pb-10">
       <div className="glass flex flex-col items-center justify-between gap-4 rounded-2xl px-6 py-5 text-sm text-muted-foreground md:flex-row">
         <Logo />
         <p>© {new Date().getFullYear()} HighestWash — A product of Genesis Holdings Inc., USA</p>
