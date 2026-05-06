@@ -232,7 +232,7 @@ function HowItWorks() {
         initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }} className="mx-auto max-w-2xl text-center"
       >
-        <h2 className="text-4xl font-bold md:text-5xl">How HighestWash works</h2>
+        <SectionHeading src={headlineHow} alt="How HighestWash works" className="w-full max-w-2xl" />
         <p className="mt-4 text-muted-foreground">Four taps from chaos to clean.</p>
       </motion.div>
 
@@ -291,7 +291,7 @@ function Apps() {
   return (
     <section id="apps" className="mx-auto w-[min(1200px,calc(100%-2rem))] py-20">
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mx-auto max-w-2xl text-center">
-        <h2 className="text-4xl font-bold md:text-5xl">Three apps. <span className="text-gradient">One ecosystem.</span></h2>
+        <SectionHeading src={headlineApps} alt="Three apps. One ecosystem." className="w-full max-w-2xl" />
         <p className="mt-4 text-muted-foreground">Built for everyone in the laundry economy.</p>
       </motion.div>
 
@@ -349,7 +349,7 @@ function Features() {
           <img src={featureClean} alt="Fresh folded laundry" loading="lazy" width={1024} height={768} className="h-full w-full object-cover" />
         </motion.div>
         <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-          <h2 className="text-4xl font-bold md:text-5xl">Built for the way <span className="text-gradient">you live.</span></h2>
+          <SectionHeading src={headlineFeatures} alt="Built for the way you live." className="w-full max-w-xl mx-0" />
           <p className="mt-4 text-muted-foreground">Every detail crafted to give you back your time, fresh.</p>
         </motion.div>
       </div>
@@ -386,9 +386,7 @@ function Download() {
         <img src={ctaBg} alt="" className="absolute inset-0 h-full w-full object-cover opacity-40" loading="lazy" width={1920} height={1080} />
         <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/40 to-background/80" />
         <div className="relative">
-          <h2 className="text-4xl font-bold md:text-6xl">
-            Download the app. <span className="text-gradient">Start saving today.</span>
-          </h2>
+          <SectionHeading src={headlineCta} alt="Download the app. Start saving today." className="w-full max-w-3xl" />
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
             Available for Customers, Merchants and Riders on iOS and Android.
           </p>
