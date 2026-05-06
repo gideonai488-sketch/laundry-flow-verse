@@ -40,22 +40,40 @@ const fadeUp = {
   }),
 };
 
-function AnimatedHeading({ text, className = "", delay = 0 }: { text: string; className?: string; delay?: number }) {
-  const words = text.split(" ");
+function AnimatedHeading({ src, alt, className = "", delay = 0 }: { src: string; alt: string; className?: string; delay?: number }) {
   return (
-    <h1 className={className} aria-label={text}>
-      {words.map((w, i) => (
-        <span key={i} className="inline-block overflow-hidden pb-2 mr-[0.25em] align-bottom">
-          <motion.span
-            initial={{ y: "110%", opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: delay + i * 0.08, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="inline-block"
-            dangerouslySetInnerHTML={{ __html: w }}
-          />
-        </span>
-      ))}
-    </h1>
+    <motion.h1
+      className={className}
+      aria-label={alt}
+      initial={{ opacity: 0, y: 30, scale: 0.96 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ delay, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <motion.img
+        src={src}
+        alt={alt}
+        className="w-full h-auto select-none drop-shadow-[0_8px_24px_rgba(37,99,235,0.18)]"
+        animate={{ y: [0, -6, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        draggable={false}
+      />
+    </motion.h1>
+  );
+}
+
+function SectionHeading({ src, alt, className = "" }: { src: string; alt: string; className?: string }) {
+  return (
+    <motion.img
+      src={src}
+      alt={alt}
+      loading="lazy"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+      className={`mx-auto h-auto select-none drop-shadow-[0_6px_20px_rgba(37,99,235,0.15)] ${className}`}
+      draggable={false}
+    />
   );
 }
 
