@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import owlLogo from "@/assets/owl-logo.png";
 import heroBg from "@/assets/hero-bg.jpg";
+import heroPerson from "@/assets/hero-person.jpg";
 import heroVideo from "@/assets/hero-video.mp4.asset.json";
 import headlineHero from "@/assets/headline-text.png";
 import headlineHow from "@/assets/headline-how.png";
@@ -125,78 +126,94 @@ function Nav() {
 
 function Hero() {
   return (
-    <section className="relative mx-auto w-[min(1200px,calc(100%-2rem))] pt-12 pb-20 md:pt-20">
-      <div className="absolute inset-0 -z-10 overflow-hidden rounded-[2.5rem]">
+    <section className="relative mx-auto w-[min(1200px,calc(100%-2rem))] pt-8 pb-20 md:pt-12">
+      {/* Grey-style hero card */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        className="relative overflow-hidden rounded-[2rem] md:rounded-[2.5rem] bg-gradient-to-br from-primary via-primary to-accent shadow-[0_30px_80px_-30px_rgba(37,99,235,0.5)]"
+      >
+        {/* Soft texture / video accent behind */}
         <video
-          src={heroVideo.url}
-          autoPlay muted loop playsInline
-          className="h-full w-full object-cover opacity-80"
+          src={heroVideo.url} autoPlay muted loop playsInline
+          className="absolute inset-0 h-full w-full object-cover opacity-30 mix-blend-soft-light"
         />
-        <img src={heroBg} alt="" className="absolute inset-0 h-full w-full object-cover opacity-40 mix-blend-screen" width={1920} height={1280} />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/30 to-background" />
-      </div>
+        <div className="absolute -top-32 -right-32 h-[420px] w-[420px] rounded-full bg-white/20 blur-3xl" />
+        <div className="absolute -bottom-32 -left-32 h-[420px] w-[420px] rounded-full bg-accent/40 blur-3xl" />
 
-      <div className="grid items-center gap-10 px-2 md:grid-cols-2 md:px-6">
-        <div className="text-center md:text-left">
-          <motion.span
-            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs font-medium text-muted-foreground"
-          >
-            <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-            A product of Genesis Holdings Inc., USA
-          </motion.span>
+        <div className="relative grid items-center gap-6 p-6 md:grid-cols-2 md:gap-4 md:p-10 lg:p-14">
+          {/* Left: copy */}
+          <div className="text-primary-foreground">
+            <motion.span
+              initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
+              className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur px-4 py-1.5 text-xs font-medium text-white"
+            >
+              <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
+              A product of Genesis Holdings Inc., USA
+            </motion.span>
 
-          <AnimatedHeading
-            src={headlineHero}
-            alt="Wise laundry. Your price."
-            className="block w-full max-w-xl mx-auto md:mx-0"
-            delay={0.1}
-          />
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+              className="text-4xl font-extrabold leading-[1.05] tracking-tight text-white md:text-5xl lg:text-6xl"
+            >
+              On-demand laundry,<br />designed just for you.
+            </motion.h1>
 
-          <motion.p
-            variants={fadeUp} custom={6} initial="hidden" animate="show"
-            className="mt-6 max-w-xl text-lg text-muted-foreground md:text-xl"
-          >
-            Snap a photo. Get up to 4 live bids from trusted local pros.
-            Accept the price you love — a rider collects within the hour.
-          </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.35 }}
+              className="mt-5 max-w-md text-base text-white/85 md:text-lg"
+            >
+              Snap a photo. Get up to 4 live bids from trusted local pros.
+              Accept the price you love — a rider collects within the hour.
+            </motion.p>
 
+            <motion.div
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="mt-8 flex flex-wrap items-center gap-3"
+            >
+              <a href="#download" className="flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-primary shadow-lg transition hover:scale-105">
+                <Apple className="h-4 w-4" /> App Store
+              </a>
+              <a href="#download" className="flex items-center gap-2 rounded-xl bg-white/15 backdrop-blur px-5 py-3 text-sm font-semibold text-white ring-1 ring-white/30 transition hover:scale-105 hover:bg-white/25">
+                <Play className="h-4 w-4" /> Google Play
+              </a>
+            </motion.div>
+          </div>
+
+          {/* Right: person image */}
           <motion.div
-            variants={fadeUp} custom={8} initial="hidden" animate="show"
-            className="mt-10 flex flex-wrap items-center justify-center gap-3 md:justify-start"
+            initial={{ opacity: 0, scale: 0.92, x: 20 }} animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="relative mx-auto w-full max-w-md md:max-w-none"
           >
-            <a href="#download" className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-accent px-6 py-3 font-semibold text-primary-foreground glow transition hover:scale-105">
-              <Apple className="h-5 w-5" /> App Store
-            </a>
-            <a href="#download" className="flex items-center gap-2 rounded-xl glass-strong px-6 py-3 font-semibold transition hover:scale-105">
-              <Play className="h-5 w-5" /> Google Play
-            </a>
+            <motion.img
+              src={heroPerson}
+              alt="Happy customer holding fresh folded laundry"
+              width={1024} height={1024}
+              className="relative z-10 w-full h-auto object-contain drop-shadow-2xl"
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            />
+            {/* tiny owl badge */}
+            <motion.div
+              className="absolute bottom-4 left-4 z-20 flex items-center gap-2 rounded-2xl bg-white/90 backdrop-blur px-3 py-2 shadow-xl"
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9 }}
+            >
+              <img src={owlLogo} alt="" width={28} height={28} />
+              <div className="text-xs">
+                <div className="font-bold text-foreground">HighestWash</div>
+                <div className="text-muted-foreground">Wise. Wash. Win.</div>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
-
-        {/* Animated owl */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="relative mx-auto aspect-square w-full max-w-md"
-        >
-          <div className="absolute inset-8 rounded-full bg-gradient-to-br from-primary/30 to-accent/30 blur-3xl animate-pulse" />
-          <div className="absolute inset-0 animate-spin-slow">
-            <div className="absolute left-1/2 top-0 h-3 w-3 -translate-x-1/2 rounded-full bg-primary glow" />
-            <div className="absolute right-0 top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-accent" />
-            <div className="absolute left-1/2 bottom-0 h-3 w-3 -translate-x-1/2 rounded-full bg-chart-3" />
-          </div>
-          <motion.img
-            src={owlLogo} alt="HighestWash owl mascot" width={512} height={512}
-            className="relative h-full w-full object-contain"
-            animate={{ y: [0, -16, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </motion.div>
-      </div>
+      </motion.div>
 
       {/* stats */}
-      <div className="relative mt-16 grid grid-cols-2 gap-4 md:grid-cols-4">
+      <div className="relative mt-10 grid grid-cols-2 gap-4 md:mt-14 md:grid-cols-4">
         {[
           { v: "<60s", l: "Avg. bid time" },
           { v: "4 pros", l: "Compete per job" },
