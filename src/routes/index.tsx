@@ -244,7 +244,7 @@ const steps = [
 
 function HowItWorks() {
   return (
-    <section id="how" className="mx-auto w-[min(1200px,calc(100%-2rem))] py-20">
+    <section id="how" className="mx-auto w-[min(1200px,calc(100%-1rem))] sm:w-[min(1200px,calc(100%-2rem))] py-12 sm:py-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }} className="mx-auto max-w-2xl text-center"
@@ -306,7 +306,7 @@ const apps = [
 
 function Apps() {
   return (
-    <section id="apps" className="mx-auto w-[min(1200px,calc(100%-2rem))] py-20">
+    <section id="apps" className="mx-auto w-[min(1200px,calc(100%-1rem))] sm:w-[min(1200px,calc(100%-2rem))] py-12 sm:py-20">
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mx-auto max-w-2xl text-center">
         <SectionHeading src={headlineApps} alt="Three apps. One ecosystem." className="w-full max-w-2xl" />
         <p className="mt-4 text-muted-foreground">Built for everyone in the laundry economy.</p>
@@ -357,7 +357,7 @@ const features = [
 
 function Features() {
   return (
-    <section id="features" className="mx-auto w-[min(1200px,calc(100%-2rem))] py-20">
+    <section id="features" className="mx-auto w-[min(1200px,calc(100%-1rem))] sm:w-[min(1200px,calc(100%-2rem))] py-12 sm:py-20">
       <div className="grid gap-10 md:grid-cols-2 md:items-center">
         <motion.div
           initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
@@ -394,7 +394,7 @@ function Features() {
 
 function Download() {
   return (
-    <section id="download" className="mx-auto w-[min(1200px,calc(100%-2rem))] py-20">
+    <section id="download" className="mx-auto w-[min(1200px,calc(100%-1rem))] sm:w-[min(1200px,calc(100%-2rem))] py-12 sm:py-20">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }} transition={{ duration: 0.7 }}
@@ -423,7 +423,7 @@ function Download() {
 
 function Footer() {
   return (
-    <footer className="mx-auto mt-10 w-[min(1200px,calc(100%-2rem))] pb-10">
+    <footer className="mx-auto mt-10 w-[min(1200px,calc(100%-1rem))] sm:w-[min(1200px,calc(100%-2rem))] pb-10">
       <div className="glass flex flex-col items-center justify-between gap-4 rounded-2xl px-6 py-5 text-sm text-muted-foreground md:flex-row">
         <Logo />
         <p>© {new Date().getFullYear()} HighestWash — A product of Genesis Holdings Inc., USA</p>
