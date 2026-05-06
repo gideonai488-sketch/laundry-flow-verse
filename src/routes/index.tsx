@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import owlLogo from "@/assets/owl-logo.png";
 import heroBg from "@/assets/hero-bg.jpg";
+import heroPerson from "@/assets/hero-person.jpg";
 import heroVideo from "@/assets/hero-video.mp4.asset.json";
 import headlineHero from "@/assets/headline-text.png";
 import headlineHow from "@/assets/headline-how.png";
