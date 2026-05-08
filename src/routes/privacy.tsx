@@ -53,7 +53,7 @@ const sections = [
     content: [
       "We retain your account data for as long as your account is active or as needed to provide our services.",
       "Order history is retained for up to 7 years to comply with financial and tax regulations.",
-      "You may request deletion of your account and associated personal data at any time by contacting privacy@highestwash.com. Some data may be retained where legally required.",
+      "You may request deletion of your account and associated personal data at any time by contacting service@highestwash.online. Some data may be retained where legally required.",
     ],
   },
   {
@@ -72,7 +72,7 @@ const sections = [
       "**Deletion:** Request erasure of your personal data, subject to legal retention requirements.",
       "**Portability:** Receive your data in a structured, machine-readable format.",
       "**Objection:** Object to processing based on legitimate interests.",
-      "To exercise any of these rights, contact us at privacy@highestwash.com. We will respond within 30 days.",
+      "To exercise any of these rights, contact us at service@highestwash.online. We will respond within 30 days.",
     ],
   },
   {
@@ -80,7 +80,7 @@ const sections = [
     content: [
       "We use industry-standard encryption (TLS in transit, AES-256 at rest) and access controls to protect your data.",
       "Payment information is handled by PCI-DSS-compliant processors.",
-      "No system is completely secure. If you believe your account has been compromised, contact support@highestwash.com immediately.",
+      "No system is completely secure. If you believe your account has been compromised, contact service@highestwash.online immediately.",
     ],
   },
   {
@@ -99,8 +99,8 @@ const sections = [
   {
     title: "10. Contact Us",
     content: [
-      "**Privacy enquiries:** privacy@highestwash.com",
-      "**General support:** support@highestwash.com",
+      "**Privacy enquiries:** service@highestwash.online",
+      "**General support:** service@highestwash.online",
       "**Postal address:** Genesis Holdings Inc., United States",
     ],
   },
@@ -182,7 +182,7 @@ function PrivacyPage() {
           <div className="flex gap-5">
             <Link to="/privacy" className="text-primary font-medium">Privacy</Link>
             <Link to="/terms" className="hover:text-foreground transition-colors">Terms</Link>
-            <a href="mailto:support@highestwash.com" className="hover:text-foreground transition-colors">Contact</a>
+            <a href="mailto:service@highestwash.online" className="hover:text-foreground transition-colors">Contact</a>
           </div>
         </div>
       </footer>

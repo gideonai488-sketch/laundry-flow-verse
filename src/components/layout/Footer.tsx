@@ -12,7 +12,7 @@ export function Footer() {
         <div className="flex gap-5">
           <Link to="/privacy" className="hover:text-foreground transition-colors">Privacy</Link>
           <Link to="/terms" className="hover:text-foreground transition-colors">Terms</Link>
-          <a href="mailto:support@highestwash.com" className="hover:text-foreground transition-colors">Contact</a>
+          <Link to="/contact" className="hover:text-foreground transition-colors">Contact</Link>
         </div>
       </div>
     </footer>

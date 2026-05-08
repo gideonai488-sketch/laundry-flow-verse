@@ -10,7 +10,7 @@ import {
 
 import appCss from "../styles.css?url";
 
-const SITE_URL = "https://highestwash.com";
+const SITE_URL = "https://highestwash.online";
 const SITE_NAME = "HighestWash";
 const SITE_TITLE = "HighestWash — On-Demand Laundry. Name Your Price.";
 const SITE_DESCRIPTION =

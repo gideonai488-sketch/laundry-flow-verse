@@ -95,7 +95,7 @@ const sections = [
   {
     title: "10. Dispute Resolution",
     content: [
-      "We encourage you to contact our support team first at support@highestwash.com for any disputes.",
+      "We encourage you to contact our support team first at service@highestwash.online for any disputes.",
       "If a dispute cannot be resolved informally within 30 days, it shall be submitted to binding arbitration under the rules of the American Arbitration Association, conducted in English in the State of Delaware.",
       "Nothing in this clause prevents either party from seeking injunctive or other equitable relief in a court of competent jurisdiction.",
       "You agree to resolve disputes individually and waive any right to class-action proceedings.",
@@ -104,7 +104,7 @@ const sections = [
   {
     title: "11. Termination",
     content: [
-      "You may close your account at any time by contacting support@highestwash.com.",
+      "You may close your account at any time by contacting service@highestwash.online.",
       "We may suspend or terminate your access immediately if you violate these Terms, engage in fraudulent activity, or pose a safety risk to other users.",
       "Upon termination, your right to use the platform ceases. Sections on intellectual property, disclaimer, limitation of liability, and dispute resolution survive termination.",
     ],
@@ -118,8 +118,8 @@ const sections = [
   {
     title: "13. Contact",
     content: [
-      "**Legal & Terms enquiries:** legal@highestwash.com",
-      "**General support:** support@highestwash.com",
+      "**Legal & Terms enquiries:** service@highestwash.online",
+      "**General support:** service@highestwash.online",
       "**Postal address:** Genesis Holdings Inc., United States",
     ],
   },
@@ -200,7 +200,7 @@ function TermsPage() {
           <div className="flex gap-5">
             <Link to="/privacy" className="hover:text-foreground transition-colors">Privacy</Link>
             <Link to="/terms" className="text-primary font-medium">Terms</Link>
-            <a href="mailto:support@highestwash.com" className="hover:text-foreground transition-colors">Contact</a>
+            <a href="mailto:service@highestwash.online" className="hover:text-foreground transition-colors">Contact</a>
           </div>
         </div>
       </footer>
