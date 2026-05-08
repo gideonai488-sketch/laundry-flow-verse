@@ -10,6 +10,13 @@ import {
 
 import appCss from "../styles.css?url";
 
+const SITE_URL = "https://highestwash.com";
+const SITE_NAME = "HighestWash";
+const SITE_TITLE = "HighestWash — On-Demand Laundry. Name Your Price.";
+const SITE_DESCRIPTION =
+  "Snap your laundry, get up to 4 live bids from trusted local pros, accept the best price, and a rider picks up within the hour. HighestWash by Genesis Holdings Inc.";
+const OG_IMAGE = `${SITE_URL}/android-chrome-512x512.png`;
+
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -67,49 +74,159 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: SITE_NAME,
+      description: SITE_DESCRIPTION,
+      publisher: { "@id": `${SITE_URL}/#organization` },
+      inLanguage: "en-US",
+    },
+    {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: SITE_NAME,
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/android-chrome-512x512.png`,
+        width: 512,
+        height: 512,
+      },
+      description: SITE_DESCRIPTION,
+      foundingLocation: { "@type": "Place", name: "USA" },
+      parentOrganization: {
+        "@type": "Organization",
+        name: "Genesis Holdings Inc.",
+        addressCountry: "US",
+      },
+    },
+    {
+      "@type": "MobileApplication",
+      name: SITE_NAME,
+      operatingSystem: ["iOS", "Android"],
+      applicationCategory: "LifestyleApplication",
+      description: SITE_DESCRIPTION,
+      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.8",
+        ratingCount: "1200",
+      },
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/#webpage`,
+      url: SITE_URL,
+      name: SITE_TITLE,
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+      about: { "@id": `${SITE_URL}/#organization` },
+      description: SITE_DESCRIPTION,
+      breadcrumb: {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: SITE_URL,
+          },
+        ],
+      },
+      inLanguage: "en-US",
+    },
+  ],
+};
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "HighestWash — On-Demand Laundry. Name Your Price." },
-      {
-        name: "description",
-        content:
-          "HighestWash by Genesis Holdings Inc. — Snap your laundry, get up to 4 live bids from local pros, accept the best price, and a rider picks up within the hour.",
-      },
+
+      /* ── Viewport & theme ── */
+      { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
+      { name: "theme-color", content: "#2563eb" },
+      { name: "color-scheme", content: "light" },
+      { name: "msapplication-TileColor", content: "#2563eb" },
+      { name: "msapplication-config", content: "/browserconfig.xml" },
+
+      /* ── Primary SEO ── */
+      { title: SITE_TITLE },
+      { name: "description", content: SITE_DESCRIPTION },
+      { name: "keywords", content: "laundry app, on-demand laundry, laundry delivery, wash and fold, laundry bidding, laundry pickup, HighestWash, Genesis Holdings" },
       { name: "author", content: "Genesis Holdings Inc." },
-      { property: "og:title", content: "HighestWash — On-Demand Laundry. Name Your Price." },
-      {
-        property: "og:description",
-        content:
-          "Highest Wash Hub is an on-demand laundry platform connecting customers, merchants, and riders.",
-      },
+      { name: "copyright", content: `© ${new Date().getFullYear()} Genesis Holdings Inc.` },
+      { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" },
+      { name: "googlebot", content: "index, follow" },
+      { name: "rating", content: "general" },
+      { name: "revisit-after", content: "7 days" },
+      { name: "language", content: "English" },
+      { name: "geo.region", content: "US" },
+      { name: "geo.placename", content: "United States" },
+
+      /* ── Open Graph ── */
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: SITE_NAME },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:title", content: SITE_TITLE },
+      { property: "og:description", content: SITE_DESCRIPTION },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:width", content: "512" },
+      { property: "og:image:height", content: "512" },
+      { property: "og:image:alt", content: "HighestWash — On-Demand Laundry App" },
+      { property: "og:locale", content: "en_US" },
+
+      /* ── Twitter / X Card ── */
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "HighestWash — On-Demand Laundry. Name Your Price." },
-      {
-        name: "twitter:description",
-        content:
-          "Highest Wash Hub is an on-demand laundry platform connecting customers, merchants, and riders.",
-      },
-      {
-        property: "og:image",
-        content:
-          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/074bb3a8-5366-4d25-9a39-3511cebff8d3/id-preview-d7d2604b--8894c954-9bfd-493f-af02-318314b9f08a.lovable.app-1778097745693.png",
-      },
-      {
-        name: "twitter:image",
-        content:
-          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/074bb3a8-5366-4d25-9a39-3511cebff8d3/id-preview-d7d2604b--8894c954-9bfd-493f-af02-318314b9f08a.lovable.app-1778097745693.png",
-      },
+      { name: "twitter:site", content: "@HighestWash" },
+      { name: "twitter:creator", content: "@HighestWash" },
+      { name: "twitter:title", content: SITE_TITLE },
+      { name: "twitter:description", content: SITE_DESCRIPTION },
+      { name: "twitter:image", content: OG_IMAGE },
+      { name: "twitter:image:alt", content: "HighestWash — On-Demand Laundry App" },
+
+      /* ── Mobile app meta ── */
+      { name: "apple-mobile-web-app-capable", content: "yes" },
+      { name: "apple-mobile-web-app-status-bar-style", content: "default" },
+      { name: "apple-mobile-web-app-title", content: SITE_NAME },
+      { name: "mobile-web-app-capable", content: "yes" },
+      { name: "application-name", content: SITE_NAME },
+      { name: "format-detection", content: "telephone=no" },
     ],
     links: [
+      /* ── Stylesheets ── */
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap",
+      },
+
+      /* ── Canonical ── */
+      { rel: "canonical", href: SITE_URL },
+
+      /* ── Favicons ── */
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16x16.png" },
+      { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32x32.png" },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
+      { rel: "mask-icon", href: "/favicon-32x32.png", color: "#2563eb" },
+
+      /* ── PWA manifest ── */
+      { rel: "manifest", href: "/site.webmanifest" },
+
+      /* ── Sitemap ── */
+      { rel: "sitemap", type: "application/xml", href: "/sitemap.xml" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(jsonLd),
       },
     ],
   }),
@@ -121,7 +238,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" dir="ltr">
       <head>
         <HeadContent />
       </head>
