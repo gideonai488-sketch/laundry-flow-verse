@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 
 export function Footer() {
@@ -9,9 +10,9 @@ export function Footer() {
           © {new Date().getFullYear()} HighestWash — A product of Genesis Holdings Inc., USA
         </p>
         <div className="flex gap-5">
-          <a href="#" className="hover:text-foreground transition-colors">Privacy</a>
-          <a href="#" className="hover:text-foreground transition-colors">Terms</a>
-          <a href="#" className="hover:text-foreground transition-colors">Contact</a>
+          <Link to="/privacy" className="hover:text-foreground transition-colors">Privacy</Link>
+          <Link to="/terms" className="hover:text-foreground transition-colors">Terms</Link>
+          <a href="mailto:support@highestwash.com" className="hover:text-foreground transition-colors">Contact</a>
         </div>
       </div>
     </footer>
