@@ -5,6 +5,8 @@ import viteReact from '@vitejs/plugin-react'
 import tsConfigPaths from 'vite-tsconfig-paths'
 import tailwindcss from '@tailwindcss/vite'
 
+const isVercel = !!process.env.VERCEL
+
 export default defineConfig({
   server: {
     host: '0.0.0.0',
@@ -15,7 +17,7 @@ export default defineConfig({
     tanstackStart(),
     tailwindcss(),
     nitro({
-      preset: 'node-server',
+      preset: isVercel ? 'vercel' : 'node-server',
     }),
     viteReact(),
     tsConfigPaths(),

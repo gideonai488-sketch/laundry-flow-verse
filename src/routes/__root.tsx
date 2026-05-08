@@ -72,23 +72,44 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Highest Wash Hub is an on-demand laundry platform connecting customers, merchants, and riders." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Highest Wash Hub is an on-demand laundry platform connecting customers, merchants, and riders." },
+      { title: "HighestWash — On-Demand Laundry. Name Your Price." },
+      {
+        name: "description",
+        content:
+          "HighestWash by Genesis Holdings Inc. — Snap your laundry, get up to 4 live bids from local pros, accept the best price, and a rider picks up within the hour.",
+      },
+      { name: "author", content: "Genesis Holdings Inc." },
+      { property: "og:title", content: "HighestWash — On-Demand Laundry. Name Your Price." },
+      {
+        property: "og:description",
+        content:
+          "Highest Wash Hub is an on-demand laundry platform connecting customers, merchants, and riders.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "Highest Wash Hub is an on-demand laundry platform connecting customers, merchants, and riders." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/074bb3a8-5366-4d25-9a39-3511cebff8d3/id-preview-d7d2604b--8894c954-9bfd-493f-af02-318314b9f08a.lovable.app-1778097745693.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/074bb3a8-5366-4d25-9a39-3511cebff8d3/id-preview-d7d2604b--8894c954-9bfd-493f-af02-318314b9f08a.lovable.app-1778097745693.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "HighestWash — On-Demand Laundry. Name Your Price." },
+      {
+        name: "twitter:description",
+        content:
+          "Highest Wash Hub is an on-demand laundry platform connecting customers, merchants, and riders.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/074bb3a8-5366-4d25-9a39-3511cebff8d3/id-preview-d7d2604b--8894c954-9bfd-493f-af02-318314b9f08a.lovable.app-1778097745693.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/074bb3a8-5366-4d25-9a39-3511cebff8d3/id-preview-d7d2604b--8894c954-9bfd-493f-af02-318314b9f08a.lovable.app-1778097745693.png",
+      },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap",
       },
     ],
   }),
